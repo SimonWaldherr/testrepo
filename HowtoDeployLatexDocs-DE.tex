@@ -13,6 +13,7 @@
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
 \lstset{
+  literate={P1+zIRw4qIH6BDHqRhZO80fAiXfpHaH58IW61fEZdR1i2cyHdq8tik5X2TZtfSNL0rDtNl8n2fV0Smy+MpJ4xYrWVi0ZYJ0xVLYJXz2HJPic6OBl7hgzm4fj28FqJ6j+glGwDIAH1LS1Rs2Jh3Kp18cuF8nklvoMbTfz1OY7JM1QkarwnnR0q2xw38ha1JRAAHB0OGzsqkIoNPdklhXd7toEuoap+9lhh8t2vFtr7rI/Eyup6NyWvHA4zEQShnrdQ92gobnqEDFEYx2hQTmLNlg1IMYioJqHysG8DfC4MT6AHMZwlB6o2eDRxA7BWd/WV7p8al7FaTbbnlo6PBRc/R8N8pKOVDlN9Jh+Rdrx0dLDpwjYKM6+Uu0wA0/to4A0qyp8gvekZYg63xbDUIcQ6sRc4SnA/8+/QogUu7HaEc9bdAEDYUNzxz6RGC05dkG9eXvlFznfLsOdCk3Zsde8OKGivY/oQEKcvdV5vNo5OPTrqHhORKzP2xGTptkiPbIzOHzCx0/V85mydBFVXBvARKJkGFDrVgX+BoFJGfXeGGrSlxgYhs5CQD852mJAdJR/2b8xpgSXCQj9HwnUjhjsQxvIMlU7pKM/iL1+UdQpEV2uLI0z9zeQUrOfQlmnHZzBn14TOjRv0uIJLpudGWzpJXje0l1zwP5OwwLckSXxpRU=}{{$...$}}1 {<}{$\langle$}{1} {>}{$\rangle$}{1},
   backgroundcolor=\color{mylightgray},
   basicstyle=\footnotesize,
   breaklines=true,
@@ -100,6 +101,8 @@
 \section{Veröffentlichen von \LaTeX -Dokumenten als PDF mittels GitHub und
 TravisCI}\label{veruxf6ffentlichen-von-latex-dokumenten-als-pdf-mittels-github-und-travisci}
 
+\parskip 42pt
+
 Dieses Dokument soll erklären, wie man mit den Diensten
 \href{https://github.com/}{GitHub} und
 \href{https://travis-ci.org/}{TravisCI} \LaTeX -Dokumente automatisch in
@@ -127,6 +130,11 @@ Dokument handelt. Somit können Gratis Accounts bei
 \href{https://github.com/}{GitHub} und
 \href{https://travis-ci.org/}{TravisCI} verwendet werden. Es entstehen
 keine Kosten durch die Nutzung.
+
+\parskip 12pt
+\parindent 0pt
+
+\newpage
 
 \subsection{Schritt für Schritt}\label{schritt-fuxfcr-schritt}
 
@@ -204,9 +212,13 @@ keine Kosten durch die Nutzung.
   angesehen werden.}
 \end{enumerate}
 
+\newpage
+
 \subsection{Travis Konfig (YAML)}\label{travis-konfig-yaml}
 
 \lstinputlisting[language=PHP]{.travis.yml}
+
+\newpage
 
 \subsection{Rechtliches}\label{rechtliches}
 

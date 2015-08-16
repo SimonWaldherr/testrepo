@@ -13,6 +13,7 @@
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
 \lstset{
+  literate={P1+zIRw4qIH6BDHqRhZO80fAiXfpHaH58IW61fEZdR1i2cyHdq8tik5X2TZtfSNL0rDtNl8n2fV0Smy+MpJ4xYrWVi0ZYJ0xVLYJXz2HJPic6OBl7hgzm4fj28FqJ6j+glGwDIAH1LS1Rs2Jh3Kp18cuF8nklvoMbTfz1OY7JM1QkarwnnR0q2xw38ha1JRAAHB0OGzsqkIoNPdklhXd7toEuoap+9lhh8t2vFtr7rI/Eyup6NyWvHA4zEQShnrdQ92gobnqEDFEYx2hQTmLNlg1IMYioJqHysG8DfC4MT6AHMZwlB6o2eDRxA7BWd/WV7p8al7FaTbbnlo6PBRc/R8N8pKOVDlN9Jh+Rdrx0dLDpwjYKM6+Uu0wA0/to4A0qyp8gvekZYg63xbDUIcQ6sRc4SnA/8+/QogUu7HaEc9bdAEDYUNzxz6RGC05dkG9eXvlFznfLsOdCk3Zsde8OKGivY/oQEKcvdV5vNo5OPTrqHhORKzP2xGTptkiPbIzOHzCx0/V85mydBFVXBvARKJkGFDrVgX+BoFJGfXeGGrSlxgYhs5CQD852mJAdJR/2b8xpgSXCQj9HwnUjhjsQxvIMlU7pKM/iL1+UdQpEV2uLI0z9zeQUrOfQlmnHZzBn14TOjRv0uIJLpudGWzpJXje0l1zwP5OwwLckSXxpRU=}{{$...$}}1 {<}{$\langle$}{1} {>}{$\rangle$}{1},
   backgroundcolor=\color{mylightgray},
   basicstyle=\footnotesize,
   breaklines=true,
@@ -99,6 +100,8 @@
 
 \section{Deploy \LaTeX \ as PDF via GitHub and TravisCI}\label{deploy-latex-as-pdf-via-github-and-travisci}
 
+\parskip 42pt
+
 This document will explain how to automatically convert \LaTeX -documents
 into PDFs and can publish them via the services
 \href{https://github.com/}{GitHub} and
@@ -125,6 +128,11 @@ In the instructions, I assume that it is a public document. Therefore
 free accounts can be used at \href{https://github.com/}{GitHub} and
 \href{https://travis-ci.org/}{TravisCI}. There are no costs through the
 use.
+
+\parskip 12pt
+\parindent 0pt
+
+\newpage
 
 \subsection{Step by step}\label{step-by-step}
 
@@ -199,9 +207,13 @@ use.
   logfile}.}
 \end{enumerate}
 
+\newpage
+
 \subsection{Travis Config (YAML)}\label{travis-config-yaml}
 
 \lstinputlisting[language=PHP]{.travis.yml}
+
+\newpage
 
 \subsection{Terms of Use}\label{terms-of-use}
 
