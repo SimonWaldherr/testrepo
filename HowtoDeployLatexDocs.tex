@@ -4,7 +4,7 @@
 \usepackage{color}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{fixltx2e}
 
 \definecolor{mygray}{rgb}{0.4,0.4,0.4}
 \definecolor{mygreen}{rgb}{0,0.8,0.6}
@@ -13,12 +13,12 @@
 \definecolor{mylightgray}{rgb}{0.98,0.98,0.98}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
 
-\lstset{ %
+\lstset{
   backgroundcolor=\color{mylightgray},
   basicstyle=\footnotesize,
   breaklines=true,
   captionpos=b,
-  commentstyle=\tiny\color{mygreen},
+  commentstyle=\small\color{mygreen},
   deletekeywords={...},
   escapeinside={\%*}{*)},
   extendedchars=true,
@@ -37,10 +37,10 @@
   title=\lstname
 }
 
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
+\else
   \ifxetex
     \usepackage{mathspec}
     \usepackage{xltxtra,xunicode}
@@ -50,21 +50,21 @@
   \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
   \newcommand{\euro}{€}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
+
+\IfFileExists{microtype.sty}{
 \usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\UseMicrotypeSet[protrusion]{basicmath}
 }{}
 \ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
+  \usepackage[setpagesize=false,
+              unicode=false,
               xetex]{hyperref}
 \else
   \usepackage[unicode=true]{hyperref}
 \fi
-\usepackage[usenames,dvipsnames]{color}
+
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={},
@@ -74,17 +74,16 @@
             urlcolor=blue,
             linkcolor=magenta,
             pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
+\urlstyle{same}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\providecommand{\tightlist}{%
+\setlength{\emergencystretch}{3em}
+\providecommand{\tightlist}{
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{0}
 
 \date{}
 
-% Redefines (sub)paragraphs to behave more like sections
 \ifx\paragraph\undefined\else
 \let\oldparagraph\paragraph
 \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
