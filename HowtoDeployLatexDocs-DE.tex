@@ -1,10 +1,7 @@
-\documentclass[]{article}
-\usepackage{lmodern}
-\usepackage{listings}
 \usepackage{color}
-\usepackage{amssymb,amsmath}
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e}
 
 \definecolor{mygray}{rgb}{0.4,0.4,0.4}
 \definecolor{mygreen}{rgb}{0,0.8,0.6}
@@ -37,26 +34,6 @@
   title=\lstname
 }
 
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0
-  \usepackage[T1]{fontenc}
-  \usepackage[utf8]{inputenc}
-\else
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-
-\IfFileExists{microtype.sty}{
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath}
-}{}
 \ifxetex
   \usepackage[setpagesize=false,
               unicode=false,
@@ -93,13 +70,17 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
+\title{HowTo Deploy LaTeX Documents}
+\author{Simon Waldherr}
+
 \begin{document}
 
-\section{Veröffentlichen von LaTeX Dokumenten als PDF mittels GitHub und TravisCI}\label{veruxf6ffentlichen-von-latex-dokumenten-als-pdf-mittels-github-und-travisci}
+\section{Veröffentlichen von \LaTeX -Dokumenten als PDF mittels GitHub und
+TravisCI}\label{veruxf6ffentlichen-von-latex-dokumenten-als-pdf-mittels-github-und-travisci}
 
 Dieses Dokument soll erklären, wie man mit den Diensten
 \href{https://github.com/}{GitHub} und
-\href{https://travis-ci.org/}{TravisCI} LaTeX Dokumente automatisch in
+\href{https://travis-ci.org/}{TravisCI} \LaTeX -Dokumente automatisch in
 PDFs umzuwandeln und veröffentlichen kann. Der Vorteil dieses Verfahrens
 gegenüber der lokalen Umwandlung (bspw. via git hooks) und Inkludierung
 in das Repository ist u.a.:
@@ -132,7 +113,6 @@ keine Kosten durch die Nutzung.
 \tightlist
 \item
   Erstellung eines \textbf{git}-Repositories
-\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -143,16 +123,12 @@ keine Kosten durch die Nutzung.
   \href{https://github.com/new}{neues Repo auf GitHub erstellen}
 \end{itemize}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \texttt{git\ clone} das Repo (\emph{ja, man könnte auch online
   editieren, aber das ignorieren wir mal})
 \item
   zur Konfiguration benutzen wir die \textbf{.travis.yml-YAML-Datei}
   (genaueres weiter unten)
-\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -190,15 +166,12 @@ keine Kosten durch die Nutzung.
   in den Zeilen 32 bis 34 werden die hochzuladenden Dateien definiert
 \end{itemize}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   um das Repo für Travis Builds zu aktivieren kann es notwendig sein,
   die Liste der Repos im \href{https://travis-ci.org/profile}{TravisCI
   Profil} zu aktualisieren.
 \item
-  nun sind die LaTeX oder Markdown Dateien zu erstellen (vergiss nicht
+  nun sind die \LaTeX- oder Markdown-Dateien zu erstellen (vergiss nicht
   die Dateinamen in \textbf{.travis.yml} zu aktualisieren)
 \item
   bei jedem \texttt{git\ push} wird nun automatisch eine GNU/Linux VM
