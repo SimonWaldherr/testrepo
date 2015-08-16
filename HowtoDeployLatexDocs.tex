@@ -1,8 +1,44 @@
 \documentclass[]{article}
 \usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \usepackage{fixltx2e} % provides \textsubscript
+
+\definecolor{mygray}{rgb}{0.4,0.4,0.4}
+\definecolor{mygreen}{rgb}{0,0.8,0.6}
+\definecolor{myorange}{rgb}{1.0,0.4,0}
+\definecolor{myblue}{rgb}{0.2,0.4,1}
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mylightgray}{rgb}{0.98,0.98,0.98}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+
+\lstset{ %
+  backgroundcolor=\color{mylightgray},
+  basicstyle=\footnotesize,
+  breaklines=true,
+  captionpos=b,
+  commentstyle=\color{mygreen},
+  deletekeywords={...},
+  escapeinside={\%*}{*)},
+  extendedchars=true,
+  keepspaces=true,
+  keywordstyle=\color{blue},
+  otherkeywords={*,os:,language:,sudo:,apt_packages:,script:,after_success:,deploy:,provider:,api_key:,secure:,file:,skip_cleanup:,on:,repo:,...},
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\tiny\color{mygray},
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stepnumber=1,
+  stringstyle=\color{myorange},
+  tabsize=2,
+  title=\lstname
+}
+
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
@@ -62,6 +98,11 @@
 
 \begin{document}
 
+\section{Deploy LaTeX as PDF via GitHub and
+TravisCI}\label{deploy-latex-as-pdf-via-github-and-travisci}
+
+this document
+
 \section{Veröffentlichen von LaTeX Dokumenten als PDF mittels GitHub und
 TravisCI}\label{veruxf6ffentlichen-von-latex-dokumenten-als-pdf-mittels-github-und-travisci}
 
@@ -113,15 +154,21 @@ keine Kosten durch die Nutzung.
   \texttt{git\ clone} das Repo (\emph{ja, man könnte auch online
   editieren, aber das ignorieren wir mal})
 \item
-  zur Konfiguration benutzen wir die .travis.yml-YAML-Datei
+  zur Konfiguration benutzen wir die .travis.yml-YAML-Datei (genaueres
+  weiter unten)
+
+  \begin{itemize}
+  \item
+  \end{itemize}
+\item
+  um das Repo für Travis Builds zu aktivieren kann es notwendig sein,
+  die Liste der Repos im \href{https://travis-ci.org/profile}{TravisCI
+  Profil} zu aktualisieren.
 \end{enumerate}
 
 \subsection{Travis Konfig (YAML)}\label{travis-konfig-yaml}
 
-\begin{verbatim}
-foobar
-lorem ipsum
-\end{verbatim}
+\lstinputlisting[language=PHP]{.travis.yml}
 
 \subsection{Rechtliches}\label{rechtliches}
 
