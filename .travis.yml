@@ -20,8 +20,7 @@ script:
   - pdflatex -interaction=nonstopmode HowtoDeployLatexDocs.tex
 
 # now we convert the pdf file to a much smaller djvu document  
-- pdf2djvu -d 1200 -o HowtoDeployLatexDocs.djvu HowtoDeployLatexDocs.pdf
-
+  - pdf2djvu -d 1200 -o HowtoDeployLatexDocs.djvu HowtoDeployLatexDocs.pdf
 after_success:
 # upload the previously generated pdf file to simonwaldherr.de (use $UPLOADSECRET as password)
 #  - wget --post-file=HowtoDeployLatexDocs.pdf -q -O- "https://simonwaldherr.de/pdf/?repo=HowtoDeployLatexDocs&mode=save&key=$UPLOADSECRET&pull=$TRAVIS_PULL_REQUEST"
