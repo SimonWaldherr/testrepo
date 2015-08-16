@@ -1,9 +1,9 @@
 \documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{listings}
 \usepackage{color}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e}
 
 \definecolor{mygray}{rgb}{0.4,0.4,0.4}
 \definecolor{mygreen}{rgb}{0,0.8,0.6}
@@ -92,11 +92,14 @@
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
+\title{HowTo Deploy LaTeX Documents}
+\author{Simon Waldherr}
+
 \begin{document}
 
-\section{Deploy LaTeX as PDF via GitHub and TravisCI}\label{deploy-latex-as-pdf-via-github-and-travisci}
+\section{Deploy \LaTeX as PDF via GitHub and TravisCI}\label{deploy-latex-as-pdf-via-github-and-travisci}
 
-This document will explain how to automatically convert LaTeX documents
+This document will explain how to automatically convert \LaTeX -documents
 into PDFs and can publish them via the services
 \href{https://github.com/}{GitHub} and
 \href{https://travis-ci.org/}{TravisCI}. The advantage of this method
@@ -130,7 +133,6 @@ use.
 \tightlist
 \item
   Creation of a \textbf{git}-Repository
-\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -141,16 +143,12 @@ use.
   \href{https://github.com/new}{create a new repo on GitHub}
 \end{itemize}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \texttt{git\ clone} the repo (\emph{yes, you could also edit online,
   but we ignore it this time})
 \item
   for configuration, we use \textbf{Travis.yml-YAML file} (more details
   below)
-\end{enumerate}
 
 \begin{itemize}
 \tightlist
@@ -185,15 +183,12 @@ use.
   in lines 32 to 34 the files to upload are defined
 \end{itemize}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   to activate the repo for Travis builds it may be necessary to refresh
   the list of repos in your
   \href{https://travis-ci.org/profile}{TravisCI profile}.
 \item
-  now the LaTeX or Markdown files are to be created (remember to update
+  now the \LaTeX -or Markdown-files are to be created (remember to update
   the filenames in \textbf{.travis.yml})
 \item
   at every \texttt{git\ push} a GNU/Linux VM will be started

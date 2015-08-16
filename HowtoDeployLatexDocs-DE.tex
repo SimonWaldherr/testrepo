@@ -1,6 +1,8 @@
-\usepackage{color}
 \documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{listings}
+\usepackage{color}
 \usepackage{ifxetex,ifluatex}
 
 \definecolor{mygray}{rgb}{0.4,0.4,0.4}
@@ -34,6 +36,26 @@
   title=\lstname
 }
 
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+
+\IfFileExists{microtype.sty}{
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath}
+}{}
 \ifxetex
   \usepackage[setpagesize=false,
               unicode=false,
@@ -185,7 +207,6 @@ keine Kosten durch die Nutzung.
 \subsection{Travis Konfig (YAML)}\label{travis-konfig-yaml}
 
 \lstinputlisting[language=PHP]{.travis.yml}
-
 
 \subsection{Rechtliches}\label{rechtliches}
 
