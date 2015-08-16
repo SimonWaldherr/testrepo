@@ -137,30 +137,82 @@ keine Kosten durch die Nutzung.
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Erstellung eines git-Repositories
+  Erstellung eines \textbf{git}-Repositories
+\end{enumerate}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \href{https://github.com/SimonWaldherr/testrepo\#fork-destination-box}{dieses
-    Repo forken} \emph{oder}
-  \item
-    \href{https://github.com/new}{neues Repo auf GitHub erstellen}
-  \end{itemize}
+\begin{itemize}
+\tightlist
+\item
+  \href{https://github.com/SimonWaldherr/golang-examples\#fork-destination-box}{dieses
+  Repo forken} \emph{oder}
+\item
+  \href{https://github.com/new}{neues Repo auf GitHub erstellen}
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   \texttt{git\ clone} das Repo (\emph{ja, man könnte auch online
   editieren, aber das ignorieren wir mal})
 \item
-  zur Konfiguration benutzen wir die .travis.yml-YAML-Datei (genaueres
-  weiter unten)
+  zur Konfiguration benutzen wir die \textbf{.travis.yml-YAML-Datei}
+  (genaueres weiter unten)
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  in Zeile 16 ist Beispielcode zu sehen um Markdown als Ausgangsformat
+  zu verwenden
+\item
+  in Zeile 20 ist der Aufruf des \texttt{pdflatex} Programms zur
+  Umwandlung von .tex zu .pdf
+\item
+  in Zeile 23 wird das PDF in ein
+  \href{https://de.wikipedia.org/wiki/DjVu}{DjVu-Dokument} umgewandelt
+\item
+  in Zeile 26 ist zu sehen, wie man mittels wget die generierten Daten
+  überträgt
+\item
+  der in Zeile 29 definierte provider \textbf{releases} steht für
+  \textbf{GitHub Releases}
+\item
+  in Zeile 30 und 31 ist der \textbf{oauth} String der zur
+  \href{http://docs.travis-ci.com/user/deployment/releases/}{Speicherung
+  der Releases} benötigt wird gespeichert, dies kann über verschiedene
+  Befehle erzeugt werden
 
   \begin{itemize}
+  \tightlist
   \item
+    \texttt{travis\ setup\ releases} generiert den ganzen
+    \emph{deploy}-Block
+  \item
+    \texttt{travis\ encrypt\ ***\$OAUTH\_STRING***} erzeugt nur den
+    verschlüsselten Teil in Zeile 31
   \end{itemize}
+\item
+  in den Zeilen 32 bis 34 werden die hochzuladenden Dateien definiert
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
 \item
   um das Repo für Travis Builds zu aktivieren kann es notwendig sein,
   die Liste der Repos im \href{https://travis-ci.org/profile}{TravisCI
   Profil} zu aktualisieren.
+\item
+  nun sind die LaTeX oder Markdown Dateien zu erstellen (vergiss nicht
+  die Dateinamen in \textbf{.travis.yml} zu aktualisieren)
+\item
+  bei jedem \texttt{git\ push} wird nun automatisch eine GNU/Linux VM
+  bei TravisCI gestartet, welche die PDF und DjVu Dateien generiert und
+  als GitHub Release veröffentlicht. \emph{Diese Datei wurde genau so
+  erstellt, die einzelnen Schritte können im
+  \href{https://travis-ci.org/SimonWaldherr/testrepo}{TravisCI Logfile}
+  angesehen werden.}
 \end{enumerate}
 
 \subsection{Travis Konfig (YAML)}\label{travis-konfig-yaml}
