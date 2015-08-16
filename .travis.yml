@@ -17,21 +17,25 @@ script:
 
 # in the next step we use pdflatex to convert .tex to .pdf
 # of course we could use pandoc for this also, but pdflatex generates nicer PDFs
-  - pdflatex -interaction=nonstopmode HowtoDeployLatexDocs.tex
+  - pdflatex -interaction=nonstopmode HowtoDeployLatexDocs-DE.tex
+  - pdflatex -interaction=nonstopmode HowtoDeployLatexDocs-EN.tex
 
 # now we convert the pdf file to a much smaller djvu document  
-  - pdf2djvu -d 1200 -o HowtoDeployLatexDocs.djvu HowtoDeployLatexDocs.pdf
+  - pdf2djvu -d 1200 -o HowtoDeployLatexDocs-DE.djvu HowtoDeployLatexDocs-DE.pdf
+  - pdf2djvu -d 1200 -o HowtoDeployLatexDocs-EN.djvu HowtoDeployLatexDocs-EN.pdf
 after_success:
 # upload the previously generated pdf file to simonwaldherr.de (use $UPLOADSECRET as password)
-#  - wget --post-file=HowtoDeployLatexDocs.pdf -q -O- "https://simonwaldherr.de/pdf/?repo=HowtoDeployLatexDocs&mode=save&key=$UPLOADSECRET&pull=$TRAVIS_PULL_REQUEST"
+#  - wget --post-file=HowtoDeployLatexDocs-DE.pdf -q -O- "https://simonwaldherr.de/pdf/?repo=HowtoDeployLatexDocs&mode=save&key=$UPLOADSECRET&pull=$TRAVIS_PULL_REQUEST"
 
 deploy:
   provider: releases
   api_key:
     secure: P1+zIRw4qIH6BDHqRhZO80fAiXfpHaH58IW61fEZdR1i2cyHdq8tik5X2TZtfSNL0rDtNl8n2fV0Smy+MpJ4xYrWVi0ZYJ0xVLYJXz2HJPic6OBl7hgzm4fj28FqJ6j+glGwDIAH1LS1Rs2Jh3Kp18cuF8nklvoMbTfz1OY7JM1QkarwnnR0q2xw38ha1JRAAHB0OGzsqkIoNPdklhXd7toEuoap+9lhh8t2vFtr7rI/Eyup6NyWvHA4zEQShnrdQ92gobnqEDFEYx2hQTmLNlg1IMYioJqHysG8DfC4MT6AHMZwlB6o2eDRxA7BWd/WV7p8al7FaTbbnlo6PBRc/R8N8pKOVDlN9Jh+Rdrx0dLDpwjYKM6+Uu0wA0/to4A0qyp8gvekZYg63xbDUIcQ6sRc4SnA/8+/QogUu7HaEc9bdAEDYUNzxz6RGC05dkG9eXvlFznfLsOdCk3Zsde8OKGivY/oQEKcvdV5vNo5OPTrqHhORKzP2xGTptkiPbIzOHzCx0/V85mydBFVXBvARKJkGFDrVgX+BoFJGfXeGGrSlxgYhs5CQD852mJAdJR/2b8xpgSXCQj9HwnUjhjsQxvIMlU7pKM/iL1+UdQpEV2uLI0z9zeQUrOfQlmnHZzBn14TOjRv0uIJLpudGWzpJXje0l1zwP5OwwLckSXxpRU=
   file: 
-    - "HowtoDeployLatexDocs.pdf"
-    - "HowtoDeployLatexDocs.djvu"
+    - "HowtoDeployLatexDocs-DE.pdf"
+    - "HowtoDeployLatexDocs-EN.pdf"
+    - "HowtoDeployLatexDocs-DE.djvu"
+    - "HowtoDeployLatexDocs-EN.djvu"
   skip_cleanup: true
   on:
     repo: SimonWaldherr/testrepo
