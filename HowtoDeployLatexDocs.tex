@@ -98,133 +98,119 @@
 \section{Deploy LaTeX as PDF via GitHub and
 TravisCI}\label{deploy-latex-as-pdf-via-github-and-travisci}
 
-this document
-
-\section{Veröffentlichen von LaTeX Dokumenten als PDF mittels GitHub und
-TravisCI}\label{veruxf6ffentlichen-von-latex-dokumenten-als-pdf-mittels-github-und-travisci}
-
-Dieses Dokument soll erklären, wie man mit den Diensten
-\href{https://github.com/}{GitHub} und
-\href{https://travis-ci.org/}{TravisCI} LaTeX Dokumente automatisch in
-PDFs umzuwandeln und veröffentlichen kann. Der Vorteil dieses Verfahrens
-gegenüber der lokalen Umwandlung (bspw. via git hooks) und Inkludierung
-in das Repository ist u.a.:
+This document will explain how to automatically convert LaTeX documents
+into PDFs and can publish them via the services
+\href{https://github.com/}{GitHub} and
+\href{https://travis-ci.org/}{TravisCI}. The advantage of this method
+over the local transformation (Eg via git hooks) and insertion into the
+repository, among other things are:
 
 \begin{itemize}
 \tightlist
 \item
-  keine Binärdaten im Repo
+  No binary data in the repo
 \item
-  Prüfung des Codes bei jedem Commit
+  Check the code at each commit
 \item
-  Prüfung von Pull Requests
+  Testing of pull requests
 \item
-  Unabhängigkeit vom lokalem System
+  Independence from the local system
 \end{itemize}
 
-Natürlich lässt sich dies auch um die Komponente \textbf{pandoc}
-erweitern um somit auch die Umwandlung von Markdown abzudecken.
+Of course, this can be extended to cover the conversion of Markdown by
+using \textbf{pandoc}.
 
-In der Anleitung gehe ich davon aus, dass es sich um ein öffentliches
-Dokument handelt. Somit können Gratis Accounts bei
-\href{https://github.com/}{GitHub} und
-\href{https://travis-ci.org/}{TravisCI} verwendet werden. Es entstehen
-keine Kosten durch die Nutzung.
+In the instructions, I assume that it is a public document. Therefore
+free accounts can be used at \href{https://github.com/}{GitHub} and
+\href{https://travis-ci.org/}{TravisCI}. There are no costs through the
+use.
 
-\subsection{Schritt für Schritt}\label{schritt-fuxfcr-schritt}
+\subsection{Step by step}\label{step-by-step}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  Erstellung eines \textbf{git}-Repositories
+  Creation of a \textbf{git}-Repository
 \end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  \href{https://github.com/SimonWaldherr/golang-examples\#fork-destination-box}{dieses
-  Repo forken} \emph{oder}
+  \href{https://github.com/SimonWaldherr/golang-examples\#fork-destination-box}{fork
+  this repo} \emph{or}
 \item
-  \href{https://github.com/new}{neues Repo auf GitHub erstellen}
+  \href{https://github.com/new}{create a new repo on GitHub}
 \end{itemize}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  \texttt{git\ clone} das Repo (\emph{ja, man könnte auch online
-  editieren, aber das ignorieren wir mal})
+  \texttt{git\ clone} the repo (\emph{yes, you could also edit online,
+  but we ignore it this time})
 \item
-  zur Konfiguration benutzen wir die \textbf{.travis.yml-YAML-Datei}
-  (genaueres weiter unten)
+  for configuration, we use \textbf{Travis.yml-YAML file} (more details
+  below)
 \end{enumerate}
 
 \begin{itemize}
 \tightlist
 \item
-  in Zeile 16 ist Beispielcode zu sehen um Markdown als Ausgangsformat
-  zu verwenden
+  in line 16 is sample code to see howto use Markdown as input format
 \item
-  in Zeile 20 ist der Aufruf des \texttt{pdflatex} Programms zur
-  Umwandlung von .tex zu .pdf
+  in line 20 is the call of the \texttt{pdflatex} program for converting
+  .tex to .pdf
 \item
-  in Zeile 23 wird das PDF in ein
-  \href{https://de.wikipedia.org/wiki/DjVu}{DjVu-Dokument} umgewandelt
+  in line 23, the PDF gets converted to a
+  \href{https://de.wikipedia.org/wiki/DjVu}{DjVu document}
 \item
-  in Zeile 26 ist zu sehen, wie man mittels wget die generierten Daten
-  überträgt
+  in line 26 you can see how to transfer the generated data via wget
 \item
-  der in Zeile 29 definierte provider \textbf{releases} steht für
-  \textbf{GitHub Releases}
+  the at line 29 defined provider \textbf{releases} stands for
+  \textbf{GitHub releases}
 \item
-  in Zeile 30 und 31 ist der \textbf{oauth} String der zur
-  \href{http://docs.travis-ci.com/user/deployment/releases/}{Speicherung
-  der Releases} benötigt wird gespeichert, dies kann über verschiedene
-  Befehle erzeugt werden
+  in line 30 and 31 the required \textbf{oauth} string for
+  \href{http://docs.travis-ci.com/user/deployment/releases/}{storing
+  releases} is saved, it can be generated with different commands
 
   \begin{itemize}
   \tightlist
   \item
-    \texttt{travis\ setup\ releases} generiert den ganzen
-    \emph{deploy}-Block
+    \texttt{travis\ setup\ releases} generates the full
+    \emph{deploy}-block
   \item
-    \texttt{travis\ encrypt\ ***\$OAUTH\_STRING***} erzeugt nur den
-    verschlüsselten Teil in Zeile 31
+    \texttt{travis\ encrypt\ ***\$OAUTH\_STRING***} generates only the
+    encrypted part in row 31
   \end{itemize}
 \item
-  in den Zeilen 32 bis 34 werden die hochzuladenden Dateien definiert
+  in lines 32 to 34 the files to upload are defined
 \end{itemize}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
 \item
-  um das Repo für Travis Builds zu aktivieren kann es notwendig sein,
-  die Liste der Repos im \href{https://travis-ci.org/profile}{TravisCI
-  Profil} zu aktualisieren.
+  to activate the repo for Travis builds it may be necessary to refresh
+  the list of repos in your
+  \href{https://travis-ci.org/profile}{TravisCI profile}.
 \item
-  nun sind die LaTeX oder Markdown Dateien zu erstellen (vergiss nicht
-  die Dateinamen in \textbf{.travis.yml} zu aktualisieren)
+  now the LaTeX or Markdown files are to be created (remember to update
+  the filenames in \textbf{.travis.yml})
 \item
-  bei jedem \texttt{git\ push} wird nun automatisch eine GNU/Linux VM
-  bei TravisCI gestartet, welche die PDF und DjVu Dateien generiert und
-  als GitHub Release veröffentlicht. \emph{Diese Datei wurde genau so
-  erstellt, die einzelnen Schritte können im
-  \href{https://travis-ci.org/SimonWaldherr/testrepo}{TravisCI Logfile}
-  angesehen werden.}
+  at every \texttt{git\ push} a GNU/Linux VM will be started
+  automatically at TravisCI which generates the PDF and DjVu files and
+  publishes them as GitHub release. \emph{This file was created exactly
+  this way, each step can be viewed in the
+  \href{https://travis-ci.org/SimonWaldherr/testrepo}{TravisCI
+  logfile}.}
 \end{enumerate}
 
-\subsection{Travis Konfig (YAML)}\label{travis-konfig-yaml}
+\subsection{Terms of Use}\label{terms-of-use}
 
-\lstinputlisting[language=PHP]{.travis.yml}
-
-\subsection{Rechtliches}\label{rechtliches}
-
-Alle Angaben ohne Gewähr. Keine Garantie für Vollständigkeit oder
-Aktualität. Jeglicher Inhalt dieses Repos ist lizenziert unter einer
+All Rights Reserved. No guarantee for completeness or actuality. All
+content of this Repository is licensed under a
 \href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
-Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International
-Lizenz}.
+Attribution - Share Alike 4.0 License International}.
 
 \end{document}
