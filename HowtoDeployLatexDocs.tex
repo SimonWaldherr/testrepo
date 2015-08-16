@@ -1,0 +1,134 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\usepackage[usenames,dvipsnames]{color}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+\date{}
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\begin{document}
+
+\section{Veröffentlichen von LaTeX Dokumenten als PDF mittels GitHub und
+TravisCI}\label{veruxf6ffentlichen-von-latex-dokumenten-als-pdf-mittels-github-und-travisci}
+
+Dieses Dokument soll erklären, wie man mit den Diensten
+\href{https://github.com/}{GitHub} und
+\href{https://travis-ci.org/}{TravisCI} LaTeX Dokumente automatisch in
+PDFs umzuwandeln und veröffentlichen kann. Der Vorteil dieses Verfahrens
+gegenüber der lokalen Umwandlung (bspw. via git hooks) und Inkludierung
+in das Repository ist u.a.:
+
+\begin{itemize}
+\tightlist
+\item
+  keine Binärdaten im Repo
+\item
+  Prüfung des Codes bei jedem Commit
+\item
+  Prüfung von Pull Requests
+\item
+  Unabhängigkeit vom lokalem System
+\end{itemize}
+
+Natürlich lässt sich dies auch um die Komponente \textbf{pandoc}
+erweitern um somit auch die Umwandlung von Markdown abzudecken.
+
+In der Anleitung gehe ich davon aus, dass es sich um ein öffentliches
+Dokument handelt. Somit können Gratis Accounts bei
+\href{https://github.com/}{GitHub} und
+\href{https://travis-ci.org/}{TravisCI} verwendet werden. Es entstehen
+keine Kosten durch die Nutzung.
+
+\subsection{Schritt für Schritt}\label{schritt-fuxfcr-schritt}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Erstellung eines git-Repositories
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{https://github.com/SimonWaldherr/testrepo\#fork-destination-box}{dieses
+    Repo forken} \emph{oder}
+  \item
+    \href{https://github.com/new}{neues Repo auf GitHub erstellen}
+  \end{itemize}
+\item
+  \texttt{git\ clone} das Repo (\emph{ja, man könnte auch online
+  editieren, aber das ignorieren wir mal})
+\item
+  zur Konfiguration benutzen wir die .travis.yml-YAML-Datei
+\end{enumerate}
+
+\subsection{Travis Konfig (YAML)}\label{travis-konfig-yaml}
+
+\begin{verbatim}
+foobar
+lorem ipsum
+\end{verbatim}
+
+\subsection{Rechtliches}\label{rechtliches}
+
+Alle Angaben ohne Gewähr. Keine Garantie für Vollständigkeit oder
+Aktualität. Jeglicher Inhalt dieses Repos ist lizenziert unter einer
+\href{http://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
+Namensnennung - Weitergabe unter gleichen Bedingungen 4.0 International
+Lizenz}.
+
+\end{document}
