@@ -1,0 +1,12 @@
+Package: summarize-flattr-reports
+Title: generate reports of your flattr revenue
+Version: 0.1
+Authors@R: person("First", "Last", email = "first.last@example.com")
+Description: What the package does (one paragraph)
+Depends: R (>= 3.1.0)
+License: public domain
+LazyData: true
+Imports:
+    ggplot2,
+    plyr,
+    scales
