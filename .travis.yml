@@ -1,0 +1,14 @@
+os: linux
+
+# we use the R VM because it contains LaTeX and pandoc
+language: r
+
+# we need super user privileges, so we depend on the old travis-ci infrastructure
+#sudo: required
+sudo: false
+
+#before_install:
+  
+
+script:
+  - Rstudio Rscript summarize-flattr-reports.R flattr-revenue-201305.csv
