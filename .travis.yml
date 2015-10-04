@@ -7,8 +7,19 @@ language: r
 sudo: required
 #sudo: false
 
-#before_install:
-  
+env:
+  global:
+    - OS=$(uname -s)
+  matrix:
+    - R_BUILD_ARGS=" " R_CHECK_ARGS="--as-cran"
+
+r_packages:
+  - ggplot2
+  - plyr
+  - scales
+
+#install:
+#  - Rscript -e 'library(ggplot2); library(plyr); library(scales)'  
 
 script:
   - Rscript summarize-flattr-reports.R flattr-revenue-201305.csv
