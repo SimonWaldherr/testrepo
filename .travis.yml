@@ -11,4 +11,4 @@ sudo: required
   
 
 script:
-  - Rstudio Rscript summarize-flattr-reports.R flattr-revenue-201305.csv
+  - Rscript summarize-flattr-reports.R flattr-revenue-201305.csv
