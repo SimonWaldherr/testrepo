@@ -4,8 +4,8 @@ os: linux
 language: r
 
 # we need super user privileges, so we depend on the old travis-ci infrastructure
-#sudo: required
-sudo: false
+sudo: required
+#sudo: false
 
 #before_install:
   
